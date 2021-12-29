@@ -13,7 +13,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xff145C9E),
+        ),
+        primaryColor: const Color(0xff145C9E),
+        scaffoldBackgroundColor: const Color(0xff1F1F1F),
         primarySwatch: Colors.blue,
       ),
       home: const SignIn(),
