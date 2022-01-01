@@ -1,16 +1,23 @@
 import 'package:chat_app/presentation/constants/constants.dart';
-import 'package:chat_app/presentation/screens/sign_up.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
-  const SignIn({Key? key}) : super(key: key);
+  final Function toggle;
+
+  const SignIn({Key? key, required this.toggle}) : super(key: key);
 
   @override
   _SignInState createState() => _SignInState();
 }
 
 class _SignInState extends State<SignIn> {
+  @override
+  void dispose() {
+    TapGestureRecognizer().dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,11 +92,7 @@ class _SignInState extends State<SignIn> {
                         const TextStyle(decoration: TextDecoration.underline),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const SignUp(),
-                          ),
-                        );
+                        widget.toggle;
                       },
                   )
                 ],

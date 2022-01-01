@@ -1,7 +1,10 @@
-import 'package:chat_app/presentation/screens/sign_in.dart';
+import 'package:chat_app/presentation/screens/authenticate.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -22,7 +25,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xff1F1F1F),
         primarySwatch: Colors.blue,
       ),
-      home: const SignIn(),
+      home: const Authenticate(),
     );
   }
 }
