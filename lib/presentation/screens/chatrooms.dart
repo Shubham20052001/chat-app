@@ -30,6 +30,10 @@ class _ChatRoomState extends State<ChatRoom> {
           )
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.search),
+      ),
     );
   }
 }
