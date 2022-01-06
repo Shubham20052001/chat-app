@@ -92,7 +92,7 @@ class _SignInState extends State<SignIn> {
                         const TextStyle(decoration: TextDecoration.underline),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        widget.toggle;
+                        widget.toggle();
                       },
                   )
                 ],

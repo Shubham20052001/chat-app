@@ -1,4 +1,5 @@
 import 'package:chat_app/logic/services/auth.dart';
+import 'package:chat_app/logic/services/database.dart';
 import 'package:chat_app/presentation/constants/constants.dart';
 import 'package:chat_app/presentation/screens/chatrooms.dart';
 import 'package:flutter/gestures.dart';
@@ -14,6 +15,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   AuthMethods authMethods = AuthMethods();
+  DatabaseMethods databaseMethods = DatabaseMethods();
 
   bool isLoading = false;
 
@@ -24,6 +26,11 @@ class _SignUpState extends State<SignUp> {
 
   signMeUp() {
     if (formKey.currentState!.validate()) {
+      Map<String, String> userInfoMap = {
+        'name': userNameTextEditingController.text,
+        'email': emailTextEditingController.text
+      };
+
       setState(() {
         isLoading = true;
       });
@@ -33,6 +40,8 @@ class _SignUpState extends State<SignUp> {
         password: passwordTextEditingController.text,
       )
           .then((value) {
+        databaseMethods.uploadUserInfo(userInfoMap);
+
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const ChatRoom()),
@@ -160,7 +169,7 @@ class _SignUpState extends State<SignUp> {
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              widget.toggle;
+                              widget.toggle();
                             },
                         )
                       ],
