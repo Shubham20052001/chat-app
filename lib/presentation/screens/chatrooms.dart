@@ -1,5 +1,6 @@
 import 'package:chat_app/logic/services/auth.dart';
 import 'package:chat_app/presentation/screens/authenticate.dart';
+import 'package:chat_app/presentation/screens/search.dart';
 import 'package:flutter/material.dart';
 
 class ChatRoom extends StatefulWidget {
@@ -31,7 +32,11 @@ class _ChatRoomState extends State<ChatRoom> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const SearchScreen()),
+          );
+        },
         child: const Icon(Icons.search),
       ),
     );
