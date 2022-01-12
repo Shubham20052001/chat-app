@@ -23,5 +23,5 @@ InputDecoration textFieldInputDecoration({required String hintText}) {
 }
 
 TextStyle simpleTextStyle() {
-  return const TextStyle(color: Colors.white);
+  return const TextStyle(color: Colors.white, fontSize: 16);
 }
