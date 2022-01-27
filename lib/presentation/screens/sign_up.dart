@@ -1,5 +1,6 @@
 import 'package:chat_app/logic/services/auth.dart';
 import 'package:chat_app/logic/services/database.dart';
+import 'package:chat_app/logic/services/shared_preferences.dart';
 import 'package:chat_app/presentation/constants/constants.dart';
 import 'package:chat_app/presentation/screens/chatrooms.dart';
 import 'package:flutter/gestures.dart';
@@ -34,6 +35,14 @@ class _SignUpState extends State<SignUp> {
       setState(() {
         isLoading = true;
       });
+
+      SharedPreferenceFuntions.saveUserNameSharedPreferences(
+        userNameTextEditingController.text,
+      );
+      SharedPreferenceFuntions.saveUserEmailSharedPreferences(
+        emailTextEditingController.text,
+      );
+
       authMethods
           .signUpWithEmailAndPassword(
         email: emailTextEditingController.text,
@@ -41,6 +50,7 @@ class _SignUpState extends State<SignUp> {
       )
           .then((value) {
         databaseMethods.uploadUserInfo(userInfoMap);
+        SharedPreferenceFuntions.saveUserLoggedInSharedPreferences(true);
 
         Navigator.pushReplacement(
           context,

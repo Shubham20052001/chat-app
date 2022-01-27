@@ -1,4 +1,6 @@
+import 'package:chat_app/logic/models/user_info.dart';
 import 'package:chat_app/logic/services/auth.dart';
+import 'package:chat_app/logic/services/shared_preferences.dart';
 import 'package:chat_app/presentation/screens/authenticate.dart';
 import 'package:chat_app/presentation/screens/search.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +14,19 @@ class ChatRoom extends StatefulWidget {
 
 class _ChatRoomState extends State<ChatRoom> {
   AuthMethods authMethods = AuthMethods();
+
+  @override
+  void initState() {
+    getUserInfo();
+    super.initState();
+  }
+
+  getUserInfo() async {
+    UserInfo.myName =
+        (await SharedPreferenceFuntions.getUserNameSharedPreferences()) ?? '';
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
