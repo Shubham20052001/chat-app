@@ -20,7 +20,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
 
-  // ! Error here !
   bool isUserLoggedIn = false;
 
   @override

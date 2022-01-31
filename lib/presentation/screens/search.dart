@@ -42,7 +42,11 @@ class _SearchScreenState extends State<SearchScreen> {
       DatabaseMethods().createChatRoom(chatRoomId, chatRoomMap);
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const Conversation()),
+        MaterialPageRoute(
+          builder: (context) => Conversation(
+            chatRoomId: chatRoomId,
+          ),
+        ),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(

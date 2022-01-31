@@ -28,8 +28,30 @@ class DatabaseMethods {
         .collection('ChatRoom')
         .doc(chatRoomId)
         .set(chatRoomMap)
-        .onError((error, stackTrace) {
-      print(error.toString());
+        .catchError((e) {
+      print(e.toString());
     });
+  }
+
+  addConversationMessages(String chatRoomId, Map<String, dynamic> messageMap) {
+    FirebaseFirestore.instance
+        .collection('ChatRoom')
+        .doc(chatRoomId)
+        .collection('chats')
+        .add(messageMap)
+        .catchError((e) {
+      print(e.toString());
+    });
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> getConversationMessages(
+    String chatRoomId,
+  ) {
+    return FirebaseFirestore.instance
+        .collection('ChatRoom')
+        .doc(chatRoomId)
+        .collection('chats')
+        .orderBy('time', descending: false)
+        .snapshots();
   }
 }
