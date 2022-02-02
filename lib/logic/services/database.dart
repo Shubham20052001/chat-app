@@ -54,4 +54,11 @@ class DatabaseMethods {
         .orderBy('time', descending: false)
         .snapshots();
   }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> getChatRooms(String username) {
+    return FirebaseFirestore.instance
+        .collection('ChatRoom')
+        .where('users', arrayContains: username)
+        .snapshots();
+  }
 }
