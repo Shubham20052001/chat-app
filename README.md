@@ -1,16 +1,16 @@
 # chat_app
 
-A new Flutter project.
+●	Chat app is a type of 1v1 chatting application.
+
+●	It has features like search user and private chatrooms.
+
+● It also supports login/registration via Email & Google.
+
+● App Link: https://drive.google.com/file/d/1sM1TWX29Djrk06fC8dC2H4yxlQrpwOTr/view?usp=sharing
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+https://github.com/Shubham20052001/chat-app/assets/77091152/f1182eb5-908c-4e6e-a99e-7af113377d7f
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
